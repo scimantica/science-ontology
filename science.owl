@@ -1,0 +1,1401 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY ns "http://creativecommons.org/ns#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY qu "http://purl.oclc.org/NET/ssnx/qu/qu#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY gfo "http://www.onto-med.de/ontologies/gfo.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/scimantica/owl/science.owl#"
+     xml:base="http://purl.org/scimantica/owl/science.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:gfo="http://www.onto-med.de/ontologies/gfo.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:qu="http://purl.oclc.org/NET/ssnx/qu/qu#">
+    <owl:Ontology rdf:about="http://purl.org/scimantica/owl/science.owl">
+        <dc:creator rdf:datatype="&xsd;Name">Nico Adams</dc:creator>
+        <owl:versionInfo>0.2</owl:versionInfo>
+        <ns:license xml:lang="en">This ontology is licenced under a Creative Commons Attribution 3.0 licence.
+This ontology is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</ns:license>
+        <owl:imports rdf:resource="http://purl.oclc.org/NET/ssnx/qu/qu-rec20"/>
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <owl:imports rdf:resource="http://www.onto-med.de/ontologies/gfo.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#about -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#about">
+        <owl:inverseOf rdf:resource="http://purl.org/scimantica/owl/science.owl#is_described_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#has_identifier -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#has_identifier">
+        <rdfs:range rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <owl:inverseOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifies"/>
+        <rdfs:domain rdf:resource="&gfo;Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#has_property -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#has_property"/>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#has_role -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#has_role">
+        <owl:inverseOf rdf:resource="&gfo;role_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#identifies -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#identifies">
+        <rdfs:domain rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <rdfs:range rdf:resource="&gfo;Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#is_described_by -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#is_described_by"/>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#is_specified_by -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#is_specified_by">
+        <owl:inverseOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#played_by -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#played_by"/>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#predicated_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#predicated_of"/>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#property_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#property_of">
+        <owl:inverseOf rdf:resource="http://purl.org/scimantica/owl/science.owl#has_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#references -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#references"/>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#specifies -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#specifies"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#plays_role -->
+
+    <rdf:Description rdf:about="&gfo;plays_role">
+        <owl:inverseOf rdf:resource="http://purl.org/scimantica/owl/science.owl#played_by"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#role_of -->
+
+    <rdf:Description rdf:about="&gfo;role_of"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#has_Value_Literal -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/qu/qu#Unit -->
+
+    <rdf:Description rdf:about="&qu;Unit">
+        <rdfs:label xml:lang="en">unit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#measurement_value"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#abstract_section -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#abstract_section">
+        <rdfs:label xml:lang="en">abstract_section</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#document_section"/>
+        <dc:description xml:lang="en">An abstract section is a document section, that provides a summary of the content of the rest of the document.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#academic_organisation -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#academic_organisation">
+        <rdfs:label xml:lang="en">academic organisation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#organisation"/>
+        <dc:description xml:lang="en">An academic organisation is an organisation established as a legal person and endowed with the legal power to recognise academic achievement in the form of degrees and diplomas.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#affiliation_description -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#affiliation_description">
+        <rdfs:label xml:lang="en">affiliation description</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#description"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A description of the affiliation of an entity with an organisation or institution.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#agent -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#agent">
+        <rdfs:label xml:lang="en">agent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Material_object"/>
+        <dc:description xml:lang="en">An agent is an entity, which causes an action to occur.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#article -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#article">
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#publication"/>
+        <dc:description xml:lang="en">An article is a publication, which is usually issued in the context of a larger document, but which can exist as a standalone publication.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#author -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#author">
+        <rdfs:label xml:lang="en">author</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/scimantica/owl/science.owl#agent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&gfo;participates_in"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#authoring_process"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&gfo;plays_role"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#author_role"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#agent"/>
+        <dc:description xml:lang="en">An author is an agent, who participates in an authoring process and plays an author role.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#author_name -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#author_name">
+        <rdfs:label xml:lang="en">author name</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">An author name is a name, by which an author is known.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#author_role -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#author_role">
+        <rdfs:label xml:lang="en">author role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Processual_role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&gfo;role_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#authoring_process"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#authoring_process -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#authoring_process">
+        <rdfs:label xml:lang="en">authoring process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#bibliography_section -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#bibliography_section">
+        <rdfs:label xml:lang="en">bibliography_section</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#document_section"/>
+        <dc:description xml:lang="en">A bibliography section is a document section, which contains references to literature, cited elsewhere in the document the bibliography section is part of.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#biological_material_object -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#biological_material_object">
+        <rdfs:label xml:lang="en">biological material object</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&gfo;Material_object"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&gfo;on_level"/>
+                        <owl:someValuesFrom rdf:resource="&gfo;Biological_level"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&gfo;Material_object"/>
+        <dc:description xml:lang="lat">A biological material object is a material object on an ontological biological level.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#book -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#book">
+        <rdfs:label xml:lang="en">book</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#publication"/>
+        <dc:description xml:lang="en">A book is a publication of significant size and content. Physical realisations of books consist of pages sewn or glued together and bound in covers.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#building_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#building_identifier">
+        <rdfs:label xml:lang="en">building identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A building identifier is an identifier, which identifies a building.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#century -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#century">
+        <rdfs:label xml:lang="en">century</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Chronoid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#chemical_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#chemical_identifier">
+        <rdfs:label xml:lang="en">chemical identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <dc:description xml:lang="en">A chemical identifier is an identifier, which idenifies a chemical entity.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#chemical_material_object -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#chemical_material_object">
+        <rdfs:label xml:lang="en">chemical material object</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&gfo;Material_object"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&gfo;on_level"/>
+                        <owl:someValuesFrom rdf:resource="&gfo;Chemical_level"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&gfo;Material_object"/>
+        <dc:description xml:lang="lat">A chemical material object is a material object on an ontological chemical level.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#country_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#country_identifier">
+        <rdfs:label xml:lang="en">country identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <dc:description xml:lang="en">A country identifier is an identifier, which identifies a country.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#date_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#date_specification">
+        <rdfs:label xml:lang="en">date specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="&gfo;Chronoid"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A date specification is a specification, which details data required to describe a chronoid.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#date_time_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#date_time_specification">
+        <rdfs:label xml:lang="en">date time specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#date_specification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="&gfo;Chronoid"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A date time specification is a date specification, which explicitly details date and time data required to describe a chronoid.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#day -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#day">
+        <rdfs:label xml:lang="en">day</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Chronoid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#decade -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#decade">
+        <rdfs:label xml:lang="en">decade</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Chronoid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#description -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#description">
+        <rdfs:label xml:lang="en">description</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#information_content_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
+                <owl:allValuesFrom rdf:resource="&gfo;Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A description is an information content entity, which is a written or verbal account statement or explanation about an entity.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#document -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#document">
+        <rdfs:label xml:lang="en">document</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#information_content_entity"/>
+        <dc:description xml:lang="en">A document is an information content entity, either manifested in physical form or digitally, which has the purpose of providing or transmitting information.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#document_section -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#document_section">
+        <rdfs:label xml:lang="en">document section</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#information_content_entity"/>
+        <dc:description xml:lang="en">A document section is an information content entity and part of a document.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#document_title -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#document_title">
+        <rdfs:label xml:lang="en">document title</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#title"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#document"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A document title is a title of a document.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#end_date_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#end_date_specification">
+        <rdfs:label xml:lang="en">end date specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#date_specification"/>
+        <dc:description xml:lang="en">An end date specification is a date specification, detailing the data required to describe an end date.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#end_date_time_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#end_date_time_specification">
+        <rdfs:label xml:lang="en">end date time specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#date_time_specification"/>
+        <dc:description xml:lang="en">An end date time specification is a date specification, which explicitly details date and time data required to describe a right time boundary.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#end_page_number -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#end_page_number">
+        <rdfs:label xml:lang="en">end page number</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#page_number"/>
+        <dc:description xml:lang="en">An end page number is a page number, describing the last page of a physical document.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#experimental_section -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#experimental_section">
+        <rdfs:label xml:lang="en">experimental_section</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#document_section"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#first_name -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#first_name">
+        <rdfs:label xml:lang="en">first name</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
+        <dc:description xml:lang="en">A first name is a name, that preceeds the surname.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#functioning -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#functioning">
+        <rdfs:label xml:lang="en">functioning</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#homo -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#homo">
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#organism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#homo_sapiens -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#homo_sapiens">
+        <rdfs:label xml:lang="en">Human Being</rdfs:label>
+        <rdfs:label xml:lang="lat">Homo Sapiens</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#homo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#hour -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#hour">
+        <rdfs:label xml:lang="en">hour</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Chronoid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#identifier">
+        <rdfs:label xml:lang="en">identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#label"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#identifies"/>
+                <owl:someValuesFrom rdf:resource="&gfo;Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">An identifier is a label, which is specific for an entity.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#information_content_entity -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#information_content_entity">
+        <rdfs:label xml:lang="en">information content entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Abstract"/>
+        <dc:description xml:lang="en">An information content entity is an abstract entity and stands in relation of aboutness to some entity</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#input_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#input_specification">
+        <rdfs:label xml:lang="en">input specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specification"/>
+        <dc:description xml:lang="en">An input specification is a specification of input data for a computational service or algorithm.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#iso_abbreviated_journal_name -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#iso_abbreviated_journal_name">
+        <rdfs:label xml:lang="en">ISO abbreviated journal name</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#journal_name"/>
+        <dc:description xml:lang="en">An ISO abbreviated journal name is a journal name, which has been abbreviated according to ISO standards.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#journal -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#journal">
+        <rdfs:label xml:lang="en">journal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Set"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&gfo;has_member"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#journal_article"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#journal_article -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#journal_article">
+        <rdfs:label xml:lang="en">journal article</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#article"/>
+        <dc:description xml:lang="en">A journal article is a publication, issued as part of a journal but which can exist as a standalone publication.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#journal_description -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#journal_description">
+        <rdfs:label xml:lang="en">journal description</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#description"/>
+        <dc:description xml:lang="en">A journal description is a description, describing a journal publication.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#journal_issue_description -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#journal_issue_description">
+        <rdfs:label xml:lang="en">journal issue description</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#journal_description"/>
+        <dc:description xml:lang="en">A description of an issue of a scientific journal.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#journal_name -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#journal_name">
+        <rdfs:label xml:lang="en">journal name</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
+        <dc:description xml:lang="en">A journal name is a name, used to identify a journal.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#journal_volume_description -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#journal_volume_description">
+        <rdfs:label xml:lang="en">A journal volume description is a description, describing a journal volume. Most usually, this is a number.</rdfs:label>
+        <rdfs:label xml:lang="en">journal volume description</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#journal_description"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#label -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#label">
+        <rdfs:label xml:lang="en">label</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#description"/>
+        <dc:description xml:lang="en">A label is a description, which classifies or names an entity.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#last_name -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#last_name">
+        <rdfs:label xml:lang="en">last name</rdfs:label>
+        <owl:equivalentClass rdf:resource="http://purl.org/scimantica/owl/science.owl#surname"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#latitude -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#latitude">
+        <rdfs:label xml:lang="en">latitude</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#spatial_measurement_value"/>
+        <dc:description xml:lang="en">A latitude is a spatial measurement value, that specifies the north-south position of a point on a surface, usually the earth&#39;s surface.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#location -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#location">
+        <rdfs:label xml:lang="en">location</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Topoid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#location_name -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#location_name">
+        <rdfs:label xml:lang="en">location name</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#is_specified_by"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A location name is a name, by which a location is known.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#location_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#location_specification">
+        <rdfs:label xml:lang="en">location specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#shelf_identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#tray_identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#timestamp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#storage_unit_identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#room_identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_name"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#building_identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A location specification is a specification, which describes a location in terms other than spatial measurement values.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#longitude -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#longitude">
+        <rdfs:label xml:lang="en">longitude</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#spatial_measurement_value"/>
+        <dc:description xml:lang="en">A latitude is a spatial measurement value, that specifies the east-west position of a point on a surface, usually the earth&#39;s surface.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#measurement_value -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#measurement_value">
+        <rdfs:label xml:lang="en">measurement value</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#description"/>
+        <dc:description xml:lang="en">A measurement value is a description of an observation process, which has been quantified and is indicative of the magnitude of the observable.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#millenium -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#millenium">
+        <rdfs:label xml:lang="en">millenium</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Chronoid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#model -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#model">
+        <rdfs:label xml:lang="en">model</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#information_content_entity"/>
+        <dc:description xml:lang="en">A model is a representation of an entity.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#name -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#name">
+        <rdfs:label xml:lang="en">name</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#label"/>
+        <dc:description xml:lang="en">A name is a label, by which a thing is known, addressed or referred to.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#objective_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#objective_specification">
+        <rdfs:label xml:lang="en">objective specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specification"/>
+        <dc:description xml:lang="en">An objective specification is a specification, which described the indeded outcome of a process (a process endpoint)</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#observation_description -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#observation_description">
+        <rdfs:label xml:lang="en">observation description</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#description"/>
+        <dc:description xml:lang="en">An observation description is a description of an observation process.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#observation_process -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#observation_process">
+        <rdfs:label xml:lang="en">observation process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Process"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_role"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observing_entity_role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_role"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observed_entity_role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#observed_entity_role -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#observed_entity_role">
+        <rdfs:label xml:lang="en">observed entity role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Processual_role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&gfo;role_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observation_process"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#observing_entity_role -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#observing_entity_role">
+        <rdfs:label xml:lang="en">observing entity role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Processual_role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&gfo;role_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observation_process"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#organisation -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#organisation">
+        <rdfs:label xml:lang="en">organisation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Abstract"/>
+        <dc:description xml:lang="en">An organisation is an abstract entity, embodying or realising social, legal and other roles.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#organism -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#organism">
+        <rdfs:label xml:lang="en">organism</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#biological_material_object"/>
+        <dc:description xml:lang="lat">An organism is a biological material object, composed of one or more cells and capable of independent replication under the right conditions.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#output_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#output_specification">
+        <rdfs:label>output specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specification"/>
+        <dc:description xml:lang="en">An output specification is a specification of output data for a computational service or algorithm.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#page_number -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#page_number">
+        <rdfs:label xml:lang="en">page number</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#description"/>
+        <dc:description xml:lang="en">A page number is a description (often in the form of a numeral), which describes a page in a physical document.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#physical_material_object -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#physical_material_object">
+        <rdfs:label xml:lang="en">physical material object</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&gfo;Material_object"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&gfo;on_level"/>
+                        <owl:someValuesFrom rdf:resource="&gfo;Physical_level"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&gfo;Material_object"/>
+        <dc:description xml:lang="lat">A physical material object is a material object on an ontological physical level.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#plan -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#plan">
+        <rdfs:label xml:lang="en">plan</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specification"/>
+        <dc:description xml:lang="en">A plan is a specification, detailing how to realise a process.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#project_plan -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#project_plan">
+        <rdfs:label xml:lang="en">project plan</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#plan"/>
+        <dc:description xml:lang="en">A project plan is a plan, detailing the processes to be realised  as part of a project.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#publication -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#publication">
+        <rdfs:label xml:lang="en">publication</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#document"/>
+        <dc:description xml:lang="en">A publication is a document or a set of documents prepared for public distribution or sale.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#publication_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#publication_identifier">
+        <rdfs:label xml:lang="en">publication identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <dc:description xml:lang="en">A publication identifier is an identifier, which identifies a publication.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#publication_process -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#publication_process">
+        <rdfs:label xml:lang="en">publication process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#publication_year -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#publication_year">
+        <rdfs:label xml:lang="en">publication year</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#year"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#publisher -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#publisher">
+        <rdfs:label xml:lang="en">publisher</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/scimantica/owl/science.owl#agent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&gfo;participates_in"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#publication_process"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&gfo;plays_role"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#publisher_role"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#publisher_role -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#publisher_role">
+        <rdfs:label xml:lang="en">publisher role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Processual_role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&gfo;role_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#publication_process"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#pubmed_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#pubmed_identifier">
+        <rdfs:label xml:lang="en">PubMed identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#publication_identifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A PubMed identifier is a publication identifier, issued by the National Centre for Biotechnology Information and used in the PubMed database.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#results_section -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#results_section">
+        <rdfs:label xml:lang="en">results section</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#document_section"/>
+        <dc:description xml:lang="en">A results section is a document section, which summarises the scientific results or argument reported in the document of which the section is a part.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#room_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#room_identifier">
+        <rdfs:label xml:lang="en">room identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A room identifier is an identifier, which identifies a room.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#scientific_name -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#scientific_name">
+        <rdfs:label xml:lang="en">scientific name</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
+        <dc:description xml:lang="en">A scientific name is a name for an entity, constructed according to the naming rules prescribed by standards organisation (e.g. IUPAC).</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#second -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#second">
+        <rdfs:label xml:lang="en">second</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Chronoid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#shelf_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#shelf_identifier">
+        <rdfs:label xml:lang="en">shelf identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A shelf identifier is an identifier, which identifies a shelf.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#site_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#site_identifier">
+        <rdfs:label xml:lang="en">site identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <dc:description xml:lang="en">A site identifier is an identifier, which identifies an area of ground or a geographic location.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#spatial_measurement_value -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#spatial_measurement_value">
+        <rdfs:label xml:lang="en">spatial measurement value</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#measurement_value"/>
+        <dc:description xml:lang="en">A spatial measurement value is a measurement value, specifying a point in a spatial region.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#specification">
+        <rdfs:label xml:lang="en">specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#description"/>
+        <dc:description xml:lang="en">A specification is a description of detailed requirements or of a design or a bill of materials.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#start_date_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#start_date_specification">
+        <rdfs:label xml:lang="en">start date specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#date_specification"/>
+        <dc:description xml:lang="en">An start date specification is a date specification, detailing the data required to describe an start date.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#start_date_time_specification -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#start_date_time_specification">
+        <rdfs:label xml:lang="en">start date time specification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#date_time_specification"/>
+        <dc:description xml:lang="en">An start date time specification is a date specification, which explicitly details date and time data required to describe a left time boundary.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#starting_page_number -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#starting_page_number">
+        <rdfs:label xml:lang="en">starting page number</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#page_number"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#storage_unit_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#storage_unit_identifier">
+        <rdfs:label xml:lang="en">storage unit identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A storage unit identifier is an identifier, which identifies a storage unit.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#surname -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#surname">
+        <rdfs:label xml:lang="en">surname</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
+        <dc:description xml:lang="en">A surname is a name, used to identify the members of a family.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#synonym -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#synonym">
+        <rdfs:label xml:lang="en">synonym</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
+        <dc:description xml:lang="en">A synonym is a name, having the same or nearly the same meaning as another term in a language.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#task -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#task">
+        <rdfs:label xml:lang="en">task</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#plan"/>
+        <dc:description xml:lang="en">A task is an objective specification, to be realised by an agent.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#timestamp -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#timestamp">
+        <rdfs:label xml:lang="en">timestamp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#date_time_specification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A time stamp is a date time specification, specifying date time data for an occurrent to very fine detail (fractions of a second).</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#title -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#title">
+        <rdfs:label xml:lang="en">title</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#label"/>
+        <dc:description xml:lang="en">A title is a label, which is a general or descriptive heading for a section of an information content entity, a full information content entity or a work of art.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#tray_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#tray_identifier">
+        <rdfs:label xml:lang="en">tray identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <dc:description xml:lang="en">A tray identifier is an identifier, which identifies a tray.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#vial_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#vial_identifier">
+        <rdfs:label xml:lang="en">vial identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+        <dc:description xml:lang="en">A vial identifier is an identifier, which identifies a vial.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#year -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#year">
+        <rdfs:label xml:lang="en">year</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Chronoid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Entity -->
+
+    <rdf:Description rdf:about="&gfo;Entity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_identifier"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
