@@ -576,14 +576,14 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#title"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
-                <owl:allValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#document"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
-                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#document"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:description xml:lang="en">A document title is a title of a document.</dc:description>
@@ -652,19 +652,7 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#timestamp"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
-                <owl:allValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#file"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#mime_type_specification"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#base_64_encoded_data_content_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -676,7 +664,19 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#base_64_encoded_data_content_specification"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#mime_type_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#timestamp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#file"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -886,14 +886,14 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
-                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#is_specified_by"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#is_specified_by"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_specification"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:description xml:lang="en">A location name is a name, by which a location is known.</dc:description>
@@ -910,6 +910,18 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#building_identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#timestamp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#room_identifier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -933,19 +945,7 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#room_identifier"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#storage_unit_identifier"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#timestamp"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:description xml:lang="en">A location specification is a specification, which describes a location in terms other than spatial measurement values.</dc:description>
@@ -1039,13 +1039,13 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_role"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observing_entity_role"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observed_entity_role"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_role"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observed_entity_role"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observing_entity_role"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1098,6 +1098,14 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:label xml:lang="en">organism</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#biological_material_object"/>
         <dc:description xml:lang="lat">An organism is a biological material object, composed of one or more cells and capable of independent replication under the right conditions.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#organism_part -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#organism_part">
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#biological_material_object"/>
     </owl:Class>
     
 
