@@ -963,6 +963,15 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://purl.org/scimantica/owl/science.owl#measurement_process -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#measurement_process">
+        <rdfs:label xml:lang="en">measurement process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#observation_process"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/scimantica/owl/science.owl#measurement_value -->
 
     <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#measurement_value">
