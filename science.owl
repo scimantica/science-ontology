@@ -587,6 +587,15 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://purl.org/scimantica/owl/science.owl#device_part -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#device_part">
+        <rdfs:label xml:lang="en">device part</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Material_object"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/scimantica/owl/science.owl#document -->
 
     <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#document">
