@@ -46,6 +46,11 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
     <rdf:Description rdf:about="&dc;creator">
         <rdfs:label xml:lang="en">Creator</rdfs:label>
         <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
@@ -56,8 +61,11 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#creator-006"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
-    <owl:AnnotationProperty rdf:about="&terms;description"/>
-    <owl:AnnotationProperty rdf:about="&terms;hasVersion"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
     <rdf:Description rdf:about="&dc;description">
         <rdfs:label xml:lang="en">Description</rdfs:label>
         <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
@@ -68,10 +76,42 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#description-006"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
-    <owl:AnnotationProperty rdf:about="&terms;publisher"/>
-    <owl:AnnotationProperty rdf:about="&skos;note"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="&terms;description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasVersion -->
+
+    <owl:AnnotationProperty rdf:about="&terms;hasVersion"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
     <owl:AnnotationProperty rdf:about="&terms;issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+    <owl:AnnotationProperty rdf:about="&terms;publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
     <owl:AnnotationProperty rdf:about="&terms;title"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="&skos;note"/>
     
 
 
@@ -121,6 +161,24 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://purl.org/scimantica/owl/science.owl#has_input -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#has_input">
+        <rdfs:label xml:lang="en">has input</rdfs:label>
+        <owl:inverseOf rdf:resource="http://purl.org/scimantica/owl/science.owl#input_into"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#has_output -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#has_output">
+        <rdfs:label xml:lang="en">has output</rdfs:label>
+        <owl:inverseOf rdf:resource="http://purl.org/scimantica/owl/science.owl#output_of"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/scimantica/owl/science.owl#has_property -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#has_property"/>
@@ -144,6 +202,15 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://purl.org/scimantica/owl/science.owl#input_into -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#input_into">
+        <rdfs:label xml:lang="en">input into</rdfs:label>
+        <rdfs:domain rdf:resource="http://purl.org/scimantica/owl/science.owl#input_specification"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/scimantica/owl/science.owl#is_described_by -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#is_described_by"/>
@@ -154,6 +221,15 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
 
     <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#is_specified_by">
         <owl:inverseOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#output_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/scimantica/owl/science.owl#output_of">
+        <rdfs:label xml:lang="en">output of</rdfs:label>
+        <rdfs:domain rdf:resource="http://purl.org/scimantica/owl/science.owl#output_specification"/>
     </owl:ObjectProperty>
     
 
@@ -507,14 +583,14 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
-                <owl:someValuesFrom rdf:resource="&xsd;date"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="&gfo;Chronoid"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="&gfo;Chronoid"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;date"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:description xml:lang="en">A date specification is a specification, which details data required to describe a chronoid.</dc:description>
@@ -710,12 +786,6 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#mime_type_specification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#file"/>
             </owl:Restriction>
@@ -724,6 +794,12 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#base_64_encoded_data_content_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#mime_type_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -912,7 +988,7 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#latitude">
         <rdfs:label xml:lang="en">latitude</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#spatial_measurement_value"/>
-        <dc:description xml:lang="en">A latitude is a spatial measurement value, that specifies the north-south position of a point on a surface, usually the earth&#39;s surface.</dc:description>
+        <dc:description xml:lang="en">A latitude is a spatial measurement value, that specifies the north-south position of a point on a surface, usually the earth&apos;s surface.</dc:description>
     </owl:Class>
     
 
@@ -933,14 +1009,14 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#is_specified_by"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_specification"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
-                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#is_specified_by"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:description xml:lang="en">A location name is a name, by which a location is known.</dc:description>
@@ -956,13 +1032,19 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#timestamp"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#storage_unit_identifier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_name"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#shelf_identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#timestamp"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -974,7 +1056,7 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#building_identifier"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_name"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -986,13 +1068,7 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#storage_unit_identifier"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#shelf_identifier"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#building_identifier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:description xml:lang="en">A location specification is a specification, which describes a location in terms other than spatial measurement values.</dc:description>
@@ -1005,7 +1081,7 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#longitude">
         <rdfs:label xml:lang="en">longitude</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#spatial_measurement_value"/>
-        <dc:description xml:lang="en">A latitude is a spatial measurement value, that specifies the east-west position of a point on a surface, usually the earth&#39;s surface.</dc:description>
+        <dc:description xml:lang="en">A latitude is a spatial measurement value, that specifies the east-west position of a point on a surface, usually the earth&apos;s surface.</dc:description>
     </owl:Class>
     
 
@@ -1103,13 +1179,13 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_role"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observed_entity_role"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observing_entity_role"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_role"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observing_entity_role"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#observed_entity_role"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1590,16 +1666,6 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#contributor-006"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
-    <rdf:Description rdf:about="&dc;identifier">
-        <rdfs:label xml:lang="en">Identifier</rdfs:label>
-        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
-        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
-        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
-        <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
-        <terms:description xml:lang="en">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </terms:description>
-        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#identifier-006"/>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
-    </rdf:Description>
     <rdf:Description rdf:about="&dc;language">
         <rdfs:label xml:lang="en">Language</rdfs:label>
         <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
@@ -1610,6 +1676,16 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#language-007"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;identifier">
+        <rdfs:label xml:lang="en">Identifier</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
+        <terms:description xml:lang="en">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#identifier-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/">
         <terms:modified rdf:datatype="&xsd;date">2012-06-14</terms:modified>
@@ -1709,5 +1785,5 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
 
 
 
-<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 
