@@ -1413,6 +1413,15 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://purl.org/scimantica/owl/science.owl#realisable_entity -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#realisable_entity">
+        <rdfs:label xml:lang="en">realisable entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gfo;Property"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/scimantica/owl/science.owl#results_section -->
 
     <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#results_section">
