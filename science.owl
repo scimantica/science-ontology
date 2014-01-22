@@ -363,6 +363,15 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://purl.org/scimantica/owl/science.owl#algorithm -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#algorithm">
+        <rdfs:label xml:lang="en">algorithm</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#plan"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/scimantica/owl/science.owl#article -->
 
     <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#article">
@@ -572,6 +581,15 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:label xml:lang="en">data format specification</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specification"/>
         <dc:description xml:lang="en"></dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#database_identifier -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#database_identifier">
+        <rdfs:label xml:lang="en">database identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
     </owl:Class>
     
 
