@@ -97,6 +97,12 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="&terms;modified"/>
+    
+
+
     <!-- http://purl.org/dc/terms/publisher -->
 
     <owl:AnnotationProperty rdf:about="&terms;publisher"/>
@@ -266,17 +272,35 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#has_member -->
+
+    <owl:ObjectProperty rdf:about="&gfo;has_member"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#on_level -->
+
+    <owl:ObjectProperty rdf:about="&gfo;on_level"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#participates_in -->
+
+    <owl:ObjectProperty rdf:about="&gfo;participates_in"/>
+    
+
+
     <!-- http://www.onto-med.de/ontologies/gfo.owl#plays_role -->
 
-    <rdf:Description rdf:about="&gfo;plays_role">
+    <owl:ObjectProperty rdf:about="&gfo;plays_role">
         <owl:inverseOf rdf:resource="http://purl.org/scimantica/owl/science.owl#played_by"/>
-    </rdf:Description>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://www.onto-med.de/ontologies/gfo.owl#role_of -->
 
-    <rdf:Description rdf:about="&gfo;role_of"/>
+    <owl:ObjectProperty rdf:about="&gfo;role_of"/>
     
 
 
@@ -310,10 +334,10 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
 
     <!-- http://purl.oclc.org/NET/ssnx/qu/qu#Unit -->
 
-    <rdf:Description rdf:about="&qu;Unit">
+    <owl:Class rdf:about="&qu;Unit">
         <rdfs:label xml:lang="en">unit</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#measurement_value"/>
-    </rdf:Description>
+    </owl:Class>
     
 
 
@@ -717,14 +741,14 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#title"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
-                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#document"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
-                <owl:allValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#document"/>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_Value_Literal"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:description xml:lang="en">A document title is a title of a document.</dc:description>
@@ -799,7 +823,13 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#mime_type_specification"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#base_64_encoded_data_content_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -811,13 +841,7 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#base_64_encoded_data_content_specification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#mime_type_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -866,6 +890,22 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#hour">
         <rdfs:label xml:lang="en">hour</rdfs:label>
         <rdfs:subClassOf rdf:resource="&gfo;Chronoid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#human_being_description -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#human_being_description">
+        <rdfs:label xml:lang="en">human being description</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#description"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#timestamp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A description of a human being.</rdfs:comment>
     </owl:Class>
     
 
@@ -1050,19 +1090,7 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_name"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#building_identifier"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#storage_unit_identifier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1074,7 +1102,19 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#location_name"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#tray_identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#specifies"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#storage_unit_identifier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1661,16 +1701,82 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Abstract -->
+
+    <owl:Class rdf:about="&gfo;Abstract"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Biological_level -->
+
+    <owl:Class rdf:about="&gfo;Biological_level"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Chemical_level -->
+
+    <owl:Class rdf:about="&gfo;Chemical_level"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Chronoid -->
+
+    <owl:Class rdf:about="&gfo;Chronoid"/>
+    
+
+
     <!-- http://www.onto-med.de/ontologies/gfo.owl#Entity -->
 
-    <rdf:Description rdf:about="&gfo;Entity">
+    <owl:Class rdf:about="&gfo;Entity">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#has_identifier"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </rdf:Description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Material_object -->
+
+    <owl:Class rdf:about="&gfo;Material_object"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Physical_level -->
+
+    <owl:Class rdf:about="&gfo;Physical_level"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Process -->
+
+    <owl:Class rdf:about="&gfo;Process"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Processual_role -->
+
+    <owl:Class rdf:about="&gfo;Processual_role"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Property -->
+
+    <owl:Class rdf:about="&gfo;Property"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Set -->
+
+    <owl:Class rdf:about="&gfo;Set"/>
+    
+
+
+    <!-- http://www.onto-med.de/ontologies/gfo.owl#Topoid -->
+
+    <owl:Class rdf:about="&gfo;Topoid"/>
     
 
 
