@@ -879,6 +879,7 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
 
     <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#homo_sapiens">
         <rdfs:label xml:lang="en">Human Being</rdfs:label>
+        <rdfs:label xml:lang="en">human being</rdfs:label>
         <rdfs:label xml:lang="lat">Homo Sapiens</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#homo"/>
     </owl:Class>
@@ -1171,6 +1172,15 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
     
 
 
+    <!-- http://purl.org/scimantica/owl/science.owl#mendeley_profile_page -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#mendeley_profile_page">
+        <rdfs:label xml:lang="en">Mendeley profile page</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#profile_page"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/scimantica/owl/science.owl#millenium -->
 
     <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#millenium">
@@ -1355,6 +1365,22 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:label xml:lang="en">plan</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#specification"/>
         <dc:description xml:lang="en">A plan is a specification, detailing how to realise a process.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#profile_page -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#profile_page">
+        <rdfs:label xml:lang="en">A profile page is a webpage, which describes a human being.</rdfs:label>
+        <rdfs:label xml:lang="en">profile page</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#web_page"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/scimantica/owl/science.owl#about"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/scimantica/owl/science.owl#homo_sapiens"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1688,6 +1714,24 @@ This ontology is distributed in the hope that it will be useful, but WITHOUT ANY
         <rdfs:label xml:lang="en">vial identifier</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#identifier"/>
         <dc:description xml:lang="en">A vial identifier is an identifier, which identifies a vial.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#web_of_science_profile_page -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#web_of_science_profile_page">
+        <rdfs:label xml:lang="en">Web of Science profile page</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#profile_page"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/scimantica/owl/science.owl#web_page -->
+
+    <owl:Class rdf:about="http://purl.org/scimantica/owl/science.owl#web_page">
+        <rdfs:label xml:lang="en">web page</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/scimantica/owl/science.owl#document"/>
     </owl:Class>
     
 
